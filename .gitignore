@@ -1,0 +1,5 @@
+olist.db
+build_notebook.py
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
