@@ -9,6 +9,9 @@
 -- ============================================================
 -- Query 1: Monthly revenue trend with month-over-month growth
 -- ============================================================
+-- Business question: How is revenue trending month over month, and where
+-- did growth accelerate or stall?
+--
 -- Revenue = sum of order_items.price (freight excluded -- freight is a
 -- pass-through shipping cost, not product revenue).
 -- Uses a window function (LAG) to compute % change vs. the prior month.
@@ -39,6 +42,9 @@ ORDER BY order_month;
 -- ============================================================
 -- Query 2: Top 10 product categories by revenue
 -- ============================================================
+-- Business question: Which product categories generate the most revenue --
+-- and do the highest-revenue categories also have the happiest customers?
+--
 -- Joins order_items -> products -> category_translation to get English
 -- category names (the raw column is Portuguese). Also reports each
 -- category's average review score, computed from its own CTE to avoid
@@ -82,6 +88,9 @@ LIMIT 10;
 -- ============================================================
 -- Query 3: Delivery delay vs. customer review score
 -- ============================================================
+-- Business question: Does a late delivery measurably hurt the customer's
+-- review score, and how much of our order volume is actually affected?
+--
 -- delay_days > 0 means the order arrived after its estimated delivery date.
 -- Buckets orders with CASE WHEN, then averages review_score per bucket.
 -- This is the headline finding: operational performance (did it arrive on
@@ -121,6 +130,9 @@ ORDER BY delivery_bucket;
 -- ============================================================
 -- Query 4: Top 10 sellers by revenue, ranked, with order count and review score
 -- ============================================================
+-- Business question: Which sellers generate the most revenue, and does
+-- being a top earner also mean delivering a good customer experience?
+--
 -- Demonstrates RANK() alongside aggregation -- useful for "top N per group"
 -- style questions. HAVING filters out sellers with too few orders to trust
 -- their average score.

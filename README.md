@@ -12,6 +12,15 @@ A SQL-first analysis of ~100K orders from Olist, a Brazilian e-commerce marketpl
 
 Which product categories and sellers drive the most revenue on Olist's marketplace, and does late delivery measurably hurt customer review scores? The dataset spans 8 relational tables (orders, customers, order items, products, sellers, payments, and reviews), so answering this requires joining across most of them rather than working from a single flat file.
 
+## Business Questions
+
+Each question below maps directly to one query in [sql/02_analysis_queries.sql](./sql/02_analysis_queries.sql):
+
+1. **How is revenue trending month over month, and where did growth accelerate or stall?** *(Query 1)*
+2. **Which product categories generate the most revenue — and do the highest-revenue categories also have the happiest customers?** *(Query 2)*
+3. **Does a late delivery measurably hurt the customer's review score, and how much of the order volume is actually affected?** *(Query 3)*
+4. **Which sellers generate the most revenue, and does being a top earner also mean delivering a good customer experience?** *(Query 4)*
+
 ## Data Source
 
 **Olist Brazilian E-Commerce Public Dataset** — ~100,000 orders placed on the Olist marketplace between 2016 and 2018, covering order status, items, prices, freight, payments, customer and seller location, product category, and post-purchase review scores. Originally published by Olist.
